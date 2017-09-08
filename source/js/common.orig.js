@@ -174,7 +174,7 @@
 		$('#toggle-wxss-qrcode').on('click', function() {
 			$('#wxss-qrcode').modal('show');
 		});
-		
+
 		if (document.getElementById('busmap')) {
 			map = new AMap.Map('busmap',{
 				resizeEnable: true,
@@ -339,8 +339,21 @@
 			var online = r.online;
 			var offline = r.offline;
 			for (i = 0; i < online.length; i++) {
+				//根据车头朝向给出对应的icon
+				var ico = null;
+				switch (online[i].headPosition) {
+					case 1: ico = './source/img/map-marker/marker-bus-online-N.png'; break;
+					case 2: ico = './source/img/map-marker/marker-bus-online-NE.png'; break;
+					case 3: ico = './source/img/map-marker/marker-bus-online-E.png'; break;
+					case 4: ico = './source/img/map-marker/marker-bus-online-SE.png'; break;
+					case 5: ico = './source/img/map-marker/marker-bus-online-S.png'; break;
+					case 6: ico = './source/img/map-marker/marker-bus-online-SW.png'; break;
+					case 7: ico = './source/img/map-marker/marker-bus-online-W.png'; break;
+					case 8: ico = './source/img/map-marker/marker-bus-online-NW.png'; break;
+					default: ico = './source/img/map-marker/marker-bus-online.png'; break; //预留未知状态
+				}
 				onlineMarker = new AMap.Marker({
-					icon: './source/img/map-marker/marker-bus-online.png',
+					icon: ico,
 					position: online[i].position,
 					offset: new AMap.Pixel(-18, -18),
 					extData: {
@@ -357,7 +370,7 @@
 					var data = e.target.G.extData;
 					var title = '<span class="fa fa-bus"></span> ' + data.busNum;
 					var content = '<ul class="list-group">';
-					content += '<li class="list-group-item"><strong>终端状态:</strong> <span class="text-success">在线</span></li>'; 
+					content += '<li class="list-group-item"><strong>终端状态:</strong> <span class="text-success">在线</span></li>';
 					content += '<li class="list-group-item"><strong>执行线路:</strong> ' + data.line + '</li>';
 					content += '<li class="list-group-item"><strong>当前站:</strong> ' + data.currentStop + '</li>';
 					content += '<li class="list-group-item"><strong>下一站:</strong> ' + data.nextStop + '</li>';
@@ -383,7 +396,7 @@
 					var data = e.target.G.extData;
 					var title = '<span class="fa fa-bus"></span> ' + data.busNum;
 					var content = '<ul class="list-group">';
-					content += '<li class="list-group-item"><strong>终端状态:</strong> <span class="text-danger">离线</span></li>'; 
+					content += '<li class="list-group-item"><strong>终端状态:</strong> <span class="text-danger">离线</span></li>';
 					content += '<li class="list-group-item"><strong>GPS最后更新时间:</strong> ' + data.lastUpdate + '</li>';
 					content += '</ul>';
 					showMarkerDetail(title, content);
