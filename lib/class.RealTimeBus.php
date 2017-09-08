@@ -81,7 +81,8 @@ class RealTimeBus extends Curl {
 				'NEXT_STOP_NAME' => $raw['data'][$i]['nextsname'],
 				'POSITION_LNG' => $raw['data'][$i]['mlng'],
 				'POSITION_LAT' => $raw['data'][$i]['mlat'],
-				'UPDATE_TIME' => $raw['data'][$i]['gtime']
+				'UPDATE_TIME' => $raw['data'][$i]['gtime'],
+				'BUS_HEAD_POSITION' => $raw['data'][$i]['gdir']
 			);
 		}
 	}
@@ -104,7 +105,7 @@ class RealTimeBus extends Curl {
 	 */
 
 	private function getStopId($stopName) {
-		$this->db->query("SELECT stop_id FROM bus_stop WHERE stop_name = '{$stopName}' LIMIT 1;");
+		$this->db->query("SELECT stop_id, stop_alias FROM bus_stop WHERE stop_name = '{$stopName}' LIMIT 1;");
 		if ($this->db->numRows() != 0) {
 			$row = $this->db->fetchArray();
 			return $row['stop_id'];
@@ -258,7 +259,8 @@ class RealTimeBus extends Curl {
 					'line' => $this->computed[$a]['LINE_NAME'],
 					'currentStop' => $this->computed[$a]['CURRENT_STOP_NAME'],
 					'nextStop' => $this->computed[$a]['NEXT_STOP_NAME'],
-					'lastUpdate' => $this->computed[$a]['UPDATE_TIME']
+					'lastUpdate' => $this->computed[$a]['UPDATE_TIME'],
+					'headPosition' => $this->computed[$a]['BUS_HEAD_POSITION']
 				);
 			}
 		}
