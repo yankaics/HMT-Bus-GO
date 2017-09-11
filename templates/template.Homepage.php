@@ -40,7 +40,7 @@
 				<div class="collapse navbar-collapse" id="navbar-collapse">
 					<nav class="nav navbar-nav">
 						<li><a href="./index.php"><span class="fa fa-home"></span> 首页</a></li>
-						<li><a href="./index.php?mod=lineindex"><span class="fa fa-bus"></span> 实时校巴查询</a></li>
+						<li><a href="./index.php?mod=lineindex"><span class="fa fa-bus"></span> 校巴线路查询</a></li>
 						<li><a href="./index.php?mod=stopindex"><span class="fa fa-map-marker"></span> 校巴站点查询</a></li>
 						<li><a href="./index.php?mod=busmap"><span class="fa fa-map"></span> 校巴地图</a></li>
 						<li><a href="http://hometown.scau.edu.cn:8081/advice/bus" target="_blank"><span class="fa fa-envelope"></span> 意见反馈</a></li>
