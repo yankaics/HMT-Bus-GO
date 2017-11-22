@@ -241,7 +241,7 @@
 			ajax = null;
 			clearTimeout(timeout);
 		});
-		timeout = setTimeout(function() {
+		timeout = setTimeout(function() { //（TODO）使用SSE来取代setTimeout()
 			if (ajax) {
 				ajax.abort();
 				ajax = null;
@@ -275,7 +275,7 @@
 			ajax = null;
 			clearTimeout(timeout);
 		});
-		timeout = setTimeout(function() {
+		timeout = setTimeout(function() { //（TODO）使用SSE来取代setTimeout()
 			if (ajax) {
 				ajax.abort();
 				ajax = null;
@@ -341,17 +341,44 @@
 			for (i = 0; i < online.length; i++) {
 				//根据车头朝向给出对应的icon
 				var ico = null;
-				switch (online[i].headPosition) {
-					case 1: ico = './source/img/map-marker/marker-bus-online-N.png'; break;
-					case 2: ico = './source/img/map-marker/marker-bus-online-NE.png'; break;
-					case 3: ico = './source/img/map-marker/marker-bus-online-E.png'; break;
-					case 4: ico = './source/img/map-marker/marker-bus-online-SE.png'; break;
-					case 5: ico = './source/img/map-marker/marker-bus-online-S.png'; break;
-					case 6: ico = './source/img/map-marker/marker-bus-online-SW.png'; break;
-					case 7: ico = './source/img/map-marker/marker-bus-online-W.png'; break;
-					case 8: ico = './source/img/map-marker/marker-bus-online-NW.png'; break;
-					default: ico = './source/img/map-marker/marker-bus-online.png'; break; //预留未知状态
+
+				/**
+				 *	判断校巴是否支持微信支付
+				 *
+				 *	@note 这里为临时修补，预计寒假把API重写一次后重铸此段代码
+				 *	@note 目前支持微信支付的校巴仅有31048，可使用硬编码（临时措施）
+				 */
+
+				if (online[i].busNum == '粤C31048') {
+
+					switch (online[i].headPosition) {
+						case 1: ico = './source/img/map-marker/marker-bus-wxpay-N.png'; break;
+						case 2: ico = './source/img/map-marker/marker-bus-wxpay-NE.png'; break;
+						case 3: ico = './source/img/map-marker/marker-bus-wxpay-E.png'; break;
+						case 4: ico = './source/img/map-marker/marker-bus-wxpay-SE.png'; break;
+						case 5: ico = './source/img/map-marker/marker-bus-wxpay-S.png'; break;
+						case 6: ico = './source/img/map-marker/marker-bus-wxpay-SW.png'; break;
+						case 7: ico = './source/img/map-marker/marker-bus-wxpay-W.png'; break;
+						case 8: ico = './source/img/map-marker/marker-bus-wxpay-NW.png'; break;
+						default: ico = './source/img/map-marker/marker-bus-wxpay.png'; break; //预留未知状态
+					}
+
+				} else {
+
+					switch (online[i].headPosition) {
+						case 1: ico = './source/img/map-marker/marker-bus-online-N.png'; break;
+						case 2: ico = './source/img/map-marker/marker-bus-online-NE.png'; break;
+						case 3: ico = './source/img/map-marker/marker-bus-online-E.png'; break;
+						case 4: ico = './source/img/map-marker/marker-bus-online-SE.png'; break;
+						case 5: ico = './source/img/map-marker/marker-bus-online-S.png'; break;
+						case 6: ico = './source/img/map-marker/marker-bus-online-SW.png'; break;
+						case 7: ico = './source/img/map-marker/marker-bus-online-W.png'; break;
+						case 8: ico = './source/img/map-marker/marker-bus-online-NW.png'; break;
+						default: ico = './source/img/map-marker/marker-bus-online.png'; break; //预留未知状态
+					}
+
 				}
+
 				onlineMarker = new AMap.Marker({
 					icon: ico,
 					position: online[i].position,
@@ -406,7 +433,7 @@
 			clearTimeout(timeout);
 		});
 
-		timeout = setTimeout(function() {
+		timeout = setTimeout(function() { //（TODO）使用SSE来取代setTimeout()
 			if (aj) {
 				aj.abort();
 				aj = null;
@@ -440,7 +467,7 @@
 			aj = null;
 			clearTimeout(timeout);
 		});
-		timeout = setTimeout(function() {
+		timeout = setTimeout(function() { //（TODO）使用SSE来取代setTimeout()
 			if (aj) {
 				aj.abort();
 				aj = null;
@@ -474,7 +501,7 @@
 			aj = null;
 			clearTimeout(timeout);
 		});
-		timeout = setTimeout(function() {
+		timeout = setTimeout(function() { //（TODO）使用SSE来取代setTimeout()
 			if (aj) {
 				aj.abort();
 				aj = null;
@@ -525,7 +552,7 @@
 			aj = null;
 			clearTimeout(timeout);
 		});
-		timeout = setTimeout(function() {
+		timeout = setTimeout(function() { //（TODO）使用SSE来取代setTimeout()
 			if (aj) {
 				aj.abort();
 				$('#timeout').modal('show');
