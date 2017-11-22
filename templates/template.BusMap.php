@@ -17,6 +17,7 @@
 				</div>
 				<ul class="list-group">
 					<li class="list-group-item"><img src="<?php $this->sourceUrl('img/map-marker/marker-bus-online.png'); ?>"> 校巴所在位置</li>
+					<li class="list-group-item"><img src="<?php $this->sourceUrl('img/map-marker/marker-bus-wxpay.png'); ?>"> 可使用微信支付</li>
 					<li class="list-group-item"><img src="<?php $this->sourceUrl('img/map-marker/marker-bus-offline.png'); ?>"> 校巴终端已离线</li>
 					<li class="list-group-item"><img src="<?php $this->sourceUrl('img/map-marker/marker-stop.png'); ?>"> 校巴站点位置</li>
 					<li class="list-group-item"><img src="<?php $this->sourceUrl('img/map-marker/marker-you.png'); ?>"> 您所在的位置</li>
