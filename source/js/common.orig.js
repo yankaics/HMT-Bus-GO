@@ -173,6 +173,10 @@
 		});
 		$('#toggle-wxss-qrcode').on('click', function() {
 			$('#wxss-qrcode').modal('show');
+			$("#navbar-collapse").collapse({
+				toggle: false
+			});
+			$("#navbar-collapse").collapse("hide");
 		});
 
 		if (document.getElementById('busmap')) {

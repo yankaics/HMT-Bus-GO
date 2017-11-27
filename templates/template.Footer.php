@@ -45,6 +45,23 @@
 		</div>
 		<!-- /#loader -->
 
+		<!-- #wxss-qrcode -->
+		<div id="wxss-qrcode" class="modal fade" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-sm" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">扫描二维码添加小程序</h4>
+					</div>
+					<div class="modal-body">
+						<p><img src="<?php $this->sourceUrl('img/wxss-qrcode.jpg'); ?>" width="100%" height="100%"></p>
+						<div class="alert alert-info"><strong><span class="fa fa-info-circle"></span> 提示</strong> 可将此二维码保存到本地相册，然后通过微信扫一扫选择相册中的二维码识别。</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /#wxss-qrcode -->
+
 		<!-- scripts -->
 		<script type="text/javascript">cacheTimeout = <?php print (RTB_CACHE_EXPIRES * 1000); ?>;</script>
 		<script src="<?php $this->sourceUrl('js/jquery.js'); ?>"></script>
